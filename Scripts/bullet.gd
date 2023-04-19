@@ -8,5 +8,5 @@ func _physics_process(delta):
 	var collisionInfo = move_and_collide(vel.normalized() * delta * speed)
 
 func _on_body_entered(body):
-	if !body.is_in_group("Player"):
+	if !body.is_in_group("Player") or !body.is_in_group("Enemy"):
 		queue_free()
