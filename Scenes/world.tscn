@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2s3h5w2iv532"]
+[gd_scene load_steps=9 format=3 uid="uid://c2s3h5w2iv532"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dsh76"]
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_n4ioy"]
+[ext_resource type="Texture2D" uid="uid://cq3llg78n0abr" path="res://Background.png" id="1_ybxqy"]
 [ext_resource type="Script" path="res://Scripts/Marker2D.gd" id="2_lsgbw"]
 [ext_resource type="Texture2D" uid="uid://b54kgvtujy5dq" path="res://player.png" id="3_4u0ny"]
-[ext_resource type="PackedScene" uid="uid://bfl66njbox42k" path="res://Scenes/enemy.tscn" id="4_s8gu6"]
 [ext_resource type="PackedScene" uid="uid://xr8se3k4mrwx" path="res://Scenes/healthbar.tscn" id="5_ci2nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vshc"]
@@ -13,6 +14,12 @@ size = Vector2(16, 16)
 size = Vector2(18, 18)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_n4ioy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-57, -25)
+scale = Vector2(22.3646, 13.5917)
+texture = ExtResource("1_ybxqy")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 process_priority = 1
@@ -43,13 +50,15 @@ rotation = 3.14159
 scale = Vector2(3, 3)
 
 [node name="Control" parent="Player" instance=ExtResource("5_ci2nq")]
-offset_left = -46.0
-offset_top = -35.0
-offset_right = -46.0
-offset_bottom = -35.0
+offset_left = -42.0
+offset_top = -34.0
+offset_right = -42.0
+offset_bottom = -34.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(10, -1)
+position = Vector2(575, 326)
 
-[node name="EnemyNode" parent="." instance=ExtResource("4_s8gu6")]
-position = Vector2(-91, -72)
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
