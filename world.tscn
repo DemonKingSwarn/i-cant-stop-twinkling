@@ -36,9 +36,9 @@ texture = ExtResource("2_vadt0")
 [node name="Node2D" type="Node2D" parent="Player"]
 
 [node name="Marker2D2" type="Marker2D" parent="Player/Node2D"]
-position = Vector2(20.706, 1.14386)
+position = Vector2(29, 12)
 rotation = 3.14159
-scale = Vector2(0.000731297, 36.5654)
+scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(10, -1)
