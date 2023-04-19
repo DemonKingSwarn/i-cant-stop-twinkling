@@ -5,6 +5,11 @@ const bullet = preload("res://Scenes/bullet.tscn")
 @export var playerSpeed : int = 100
 @export var bulletSpeed = 1000
 @export var fireRate = 0.2
+@export var hitpoints : int = 100
+
+var maxHitpoints =  hitpoints
+
+@onready var healthbar = get_parent().get_node("Control/ProgressBar")
 
 var canFire = true
 
@@ -25,6 +30,12 @@ func _physics_process(delta):
 	velocity = direction * playerSpeed
 	
 	move_and_slide()
+
+func damage(damageCount):
+	hitpoints -= damageCount
+	healthbar.set_percent_value_int(hitpoints)
+	if hitpoints <= 0:
+		queue_free()
 
 func shoot():
 	var bulletInstance = bullet.instantiate()
