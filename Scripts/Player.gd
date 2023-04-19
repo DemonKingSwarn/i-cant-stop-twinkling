@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const bullet = preload("res://bullet.tscn")
+const bullet = preload("res://Scenes/bullet.tscn")
 
 @export var playerSpeed : int = 100
 @export var bulletSpeed = 1000

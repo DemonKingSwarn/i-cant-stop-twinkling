@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2s3h5w2iv532"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_4a75c"]
-[ext_resource type="Script" path="res://Marker2D.gd" id="2_kke87"]
-[ext_resource type="Texture2D" uid="uid://b54kgvtujy5dq" path="res://player.png" id="2_vadt0"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dsh76"]
+[ext_resource type="Script" path="res://Scripts/Marker2D.gd" id="2_lsgbw"]
+[ext_resource type="Texture2D" uid="uid://b54kgvtujy5dq" path="res://player.png" id="3_4u0ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vshc"]
 size = Vector2(16, 16)
@@ -14,7 +14,7 @@ size = Vector2(18, 18)
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 process_priority = 1
-script = ExtResource("1_4a75c")
+script = ExtResource("1_dsh76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(10, -1)
@@ -27,11 +27,11 @@ position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_xlb5d")
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
-script = ExtResource("2_kke87")
+script = ExtResource("2_lsgbw")
 
 [node name="Sprite" type="Sprite2D" parent="Player/Marker2D"]
 position = Vector2(10, -1)
-texture = ExtResource("2_vadt0")
+texture = ExtResource("3_4u0ny")
 
 [node name="Node2D" type="Node2D" parent="Player"]
 
