@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2s3h5w2iv532"]
+[gd_scene load_steps=6 format=3 uid="uid://c2s3h5w2iv532"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_4a75c"]
+[ext_resource type="Script" path="res://Marker2D.gd" id="2_kke87"]
 [ext_resource type="Texture2D" uid="uid://b54kgvtujy5dq" path="res://player.png" id="2_vadt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vshc"]
@@ -16,19 +17,28 @@ process_priority = 1
 script = ExtResource("1_4a75c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(60, 14)
+position = Vector2(10, -1)
 shape = SubResource("RectangleShape2D_2vshc")
-
-[node name="Sprite" type="Sprite2D" parent="Player"]
-position = Vector2(60, 14)
-texture = ExtResource("2_vadt0")
 
 [node name="Area2D" type="Area2D" parent="Player"]
 position = Vector2(10, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(50, 15)
 shape = SubResource("RectangleShape2D_xlb5d")
 
+[node name="Marker2D" type="Marker2D" parent="Player"]
+script = ExtResource("2_kke87")
+
+[node name="Sprite" type="Sprite2D" parent="Player/Marker2D"]
+position = Vector2(10, -1)
+texture = ExtResource("2_vadt0")
+
+[node name="Node2D" type="Node2D" parent="Player"]
+
+[node name="Marker2D2" type="Marker2D" parent="Player/Node2D"]
+position = Vector2(20.706, 1.14386)
+rotation = 3.14159
+scale = Vector2(0.000731297, 36.5654)
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(60, 14)
+position = Vector2(10, -1)

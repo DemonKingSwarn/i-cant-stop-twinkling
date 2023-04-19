@@ -9,17 +9,12 @@ const bullet = preload("res://bullet.tscn")
 var canFire = true
 
 func _process(delta):
-	look_at(get_global_mouse_position())
+	#look_at(get_global_mouse_position())
 
 	if Input.is_action_just_pressed("LMB") and canFire:
-		var bulletInstance = bullet.instantiate()
-		bulletInstance.position = self.global_position
-		bulletInstance.rotation_degrees = rotation_degrees
-		bulletInstance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0))
-		get_tree().get_root().add_child(bulletInstance)
-		canFire	= false
-		await get_tree().create_timer(fireRate)
-		canFire = true
+		shoot()
+		
+	$Node2D.look_at(get_global_mouse_position())
 
 func _physics_process(delta):
 	var direction : Vector2 = Vector2(
@@ -30,3 +25,18 @@ func _physics_process(delta):
 	velocity = direction * playerSpeed
 	
 	move_and_slide()
+
+func shoot():
+	var bulletInstance = bullet.instantiate()
+	
+	get_parent().add_child(bulletInstance)
+	#bullet.position = $bulletSpawn.position
+	bulletInstance.position = $Node2D/Marker2D2.global_position
+	bulletInstance.rotation_degrees = rotation_degrees
+	bulletInstance.vel = get_global_mouse_position() - bulletInstance.position
+	bulletInstance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0).rotated(rotation))
+	bulletInstance.linear_velocity = Vector2(bulletSpeed, 0).rotated(rotation)
+	get_tree().get_root().add_child(bulletInstance)
+	canFire	= false
+	await get_tree().create_timer(fireRate)
+	canFire = true
