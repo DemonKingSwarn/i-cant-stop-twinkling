@@ -50,7 +50,6 @@ rotation = 3.14159
 scale = Vector2(3, 3)
 
 [node name="Control" parent="Player" instance=ExtResource("5_ci2nq")]
-visible = false
 offset_left = -42.0
 offset_top = -34.0
 offset_right = -42.0

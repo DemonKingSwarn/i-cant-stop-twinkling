@@ -33,7 +33,7 @@ func _physics_process(delta):
 
 func damage(damageCount):
 	hitpoints -= damageCount
-	#$Control/ProgressBar.set_percent_value(hitpoints)
+	$Control/ProgressBar.value = float(hitpoints)
 	if hitpoints <= 0:
 		queue_free()
 
