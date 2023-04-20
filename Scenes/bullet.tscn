@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_uoppr"]
 [ext_resource type="Texture2D" uid="uid://ifryb3rrs0vr" path="res://square.png" id="2_gmyjp"]
-[ext_resource type="Script" path="res://Scripts/bulletArea.gd" id="3_hujvx"]
+[ext_resource type="Script" path="res://Scripts/bulletArea.gd" id="3_u1b86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpqnm"]
 size = Vector2(8, 8)
@@ -24,7 +24,7 @@ position = Vector2(-4, 4)
 shape = SubResource("RectangleShape2D_kpqnm")
 
 [node name="bulletArea" type="Area2D" parent="."]
-script = ExtResource("3_hujvx")
+script = ExtResource("3_u1b86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bulletArea"]
 position = Vector2(-4, 4)
