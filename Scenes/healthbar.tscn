@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://xr8se3k4mrwx"]
+[gd_scene load_steps=2 format=3 uid="uid://xr8se3k4mrwx"]
 
 [ext_resource type="Theme" uid="uid://t2dmrq7tddt0" path="res://Themes/healthbar_theme.tres" id="1_lmha3"]
-[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="2_gk613"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,4 +23,3 @@ offset_bottom = 17.0
 theme = ExtResource("1_lmha3")
 value = 100.0
 show_percentage = false
-script = ExtResource("2_gk613")

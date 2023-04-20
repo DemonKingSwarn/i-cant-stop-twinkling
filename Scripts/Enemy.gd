@@ -20,8 +20,8 @@ func _physics_process(delta):
 		move_and_slide()
 		look_at(playerPosition)
 
-func apply_damage(damage) -> void:
-	player.damage(damage)
+func apply_damage(damageCount) -> void:
+	player.damage(damageCount)
 	
 func personal_damage(damage) -> void:
 	hitpoints -= damage
