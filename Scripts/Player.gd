@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
+class_name Player
+
 const bullet = preload("res://Scenes/bullet.tscn")
 
 @export var playerSpeed : int = 100
-@export var bulletSpeed = 1000
-@export var fireRate = 0.2
+@export var bulletSpeed : int = 1000
+@export var fireRate : float = 0.2
 @export var hitpoints : int = 100
 
-var maxHitpoints =  hitpoints
+var maxHitpoints : int =  hitpoints
 
-@onready var healthbar = get_parent().get_node("Control/ProgressBar")
-
-var canFire = true
+var canFire : bool = true
 
 func _process(delta):
 	#look_at(get_global_mouse_position())
@@ -33,7 +33,7 @@ func _physics_process(delta):
 
 func damage(damageCount):
 	hitpoints -= damageCount
-	healthbar.set_percent_value_int(hitpoints)
+	#$Control/ProgressBar.set_percent_value(hitpoints)
 	if hitpoints <= 0:
 		queue_free()
 

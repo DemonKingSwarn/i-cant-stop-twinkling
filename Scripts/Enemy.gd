@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 @export var speed = 100
+@export var hitpoints = 100
+
+var maxHitpoints = hitpoints
+
 var playerPosition
 var targetPosition
-var hit = 5
 @onready var player = get_parent().get_parent().get_node("Player")
 
 func _physics_process(delta):
@@ -15,7 +20,10 @@ func _physics_process(delta):
 		move_and_slide()
 		look_at(playerPosition)
 
-
-func _on_area_2d_area_entered(area):
-	if area.name == "bullerArea":
-		player.damage(5)
+func apply_damage(damage) -> void:
+	player.damage(damage)
+	
+func personal_damage(damage) -> void:
+	hitpoints -= damage
+	if hitpoints <= 0:
+		queue_free()
