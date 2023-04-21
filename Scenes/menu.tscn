@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://4npiapmq2xgb"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_al0ph"]
+[ext_resource type="Texture2D" uid="uid://cq3llg78n0abr" path="res://Background.png" id="2_4s7us"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_al0ph")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(94, 182)
+scale = Vector2(3.40417, 3.1287)
+texture = ExtResource("2_4s7us")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047
+anchor_top = -0.009
+anchor_right = 0.047
+anchor_bottom = -0.009
+offset_left = -377.144
+offset_top = 0.832
+offset_right = 238.856
+offset_bottom = 71.832
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -242.0
+offset_right = 94.0
+offset_bottom = -200.0
+text = "I Can't Stop Twinkling"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dit65bw30o2xb"]
+
+[ext_resource type="Texture2D" uid="uid://cs6ppk3o16hbx" path="res://hurter.png" id="1_blhf2"]
+[ext_resource type="Script" path="res://Scripts/Hurter.gd" id="2_2wig7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbxbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgax2"]
+size = Vector2(16, 16)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_2wig7")
+
+[node name="Hurter" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_blhf2")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D/Hurter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hurter/Area2D"]
+shape = SubResource("RectangleShape2D_jbxbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_fgax2")
+
+[node name="hurterNode" type="Node2D" parent="CharacterBody2D"]
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D/hurterNode"]
+position = Vector2(13, -4)

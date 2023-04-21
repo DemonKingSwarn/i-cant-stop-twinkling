@@ -23,7 +23,7 @@ texture = ExtResource("2_gmyjp")
 position = Vector2(-4, 4)
 shape = SubResource("RectangleShape2D_kpqnm")
 
-[node name="bulletArea" type="Area2D" parent="."]
+[node name="bulletArea" type="Area2D" parent="." groups=["damager"]]
 script = ExtResource("3_u1b86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bulletArea"]

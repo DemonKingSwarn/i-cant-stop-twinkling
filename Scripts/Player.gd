@@ -49,3 +49,4 @@ func shoot():
 	canFire	= false
 	await get_tree().create_timer(fireRate)
 	canFire = true
+

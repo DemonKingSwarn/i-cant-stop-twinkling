@@ -22,8 +22,9 @@ func _physics_process(delta):
 
 func apply_damage(damageCount) -> void:
 	player.damage(damageCount)
+	player.hitpoints += 1
 	
-func personal_damage(damage) -> void:
+func personal_damage(damage):
 	hitpoints -= damage
 	if hitpoints <= 0:
 		queue_free()
