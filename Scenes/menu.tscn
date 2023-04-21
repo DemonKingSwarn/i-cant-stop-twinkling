@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4npiapmq2xgb"]
+[gd_scene load_steps=4 format=3 uid="uid://4npiapmq2xgb"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_al0ph"]
 [ext_resource type="Texture2D" uid="uid://cq3llg78n0abr" path="res://Background.png" id="2_4s7us"]
+[ext_resource type="AudioStream" uid="uid://dtiq0afolevym" path="res://Musics/Strange.wav" id="3_agpt1"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -50,6 +51,10 @@ offset_top = -242.0
 offset_right = 94.0
 offset_bottom = -200.0
 text = "I Can't Stop Twinkling"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_agpt1")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

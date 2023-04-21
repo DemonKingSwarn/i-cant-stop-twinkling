@@ -38,6 +38,7 @@ func damage(damageCount):
 	$Control/ProgressBar.value = float(hitpoints)
 	if hitpoints <= 0:
 		queue_free()
+		get_tree().reload_current_scene()
 
 func shoot():
 	var bulletInstance = bullet.instantiate()
