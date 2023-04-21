@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Marker2D.gd" id="2_lsgbw"]
 [ext_resource type="Texture2D" uid="uid://b54kgvtujy5dq" path="res://player.png" id="3_4u0ny"]
 [ext_resource type="PackedScene" uid="uid://xr8se3k4mrwx" path="res://Scenes/healthbar.tscn" id="5_ci2nq"]
-[ext_resource type="PackedScene" uid="uid://dit65bw30o2xb" path="res://Scenes/hurter.tscn" id="7_li7xo"]
+[ext_resource type="AudioStream" uid="uid://bpeuotf5yoab6" path="res://Musics/smth.mp3" id="7_1vlmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2vshc"]
 size = Vector2(16, 16)
@@ -56,13 +56,22 @@ offset_top = -34.0
 offset_right = -42.0
 offset_bottom = -34.0
 
+[node name="TextEdit" type="TextEdit" parent="Player"]
+offset_left = -33.0
+offset_top = -81.0
+offset_right = 50.0
+offset_bottom = -43.0
+text = "Score: 0"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 326)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Node2D" parent="." instance=ExtResource("7_li7xo")]
-position = Vector2(754, 293)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1vlmd")
+volume_db = 0.5
+autoplay = true
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

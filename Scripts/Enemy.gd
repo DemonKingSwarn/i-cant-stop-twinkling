@@ -27,4 +27,5 @@ func apply_damage(damageCount) -> void:
 func personal_damage(damage):
 	hitpoints -= damage
 	if hitpoints <= 0:
+		player.incrementScore()
 		queue_free()

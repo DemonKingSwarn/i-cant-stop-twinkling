@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+var score = 0
+
 const bullet = preload("res://Scenes/bullet.tscn")
 
 @export var playerSpeed : int = 100
@@ -50,3 +52,6 @@ func shoot():
 	await get_tree().create_timer(fireRate)
 	canFire = true
 
+func incrementScore():
+	score += 1
+	$TextEdit.text = "Score: " + str(score)
